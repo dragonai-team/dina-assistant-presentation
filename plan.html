@@ -176,6 +176,29 @@
     <p class="muted" style="margin-top:20px">Принцип ответа: бот отвечает, только когда уверен, что ответ есть в базе знаний. Если сомневается — эскалирует, а не угадывает.</p>
   </section>
 
+  <!-- РЕШЕНИЕ — ШКАЛА ПРИОРИТЕТОВ И ЭСКАЛАЦИЯ -->
+  <section class="page" style="background:var(--bg-alt)">
+    <div class="part-label">Часть II · Решение</div>
+    <h2>Шкала приоритетов и эскалация по срокам</h2>
+    <p style="margin-bottom:16px">Дополнение к маркеру «срочно» — задачи делятся на классы, у каждого свой приемлемый срок ответа. Если срок прошёл без ответа — повторное напоминание исполнителю, а затем контроль переходит на уровень Дины.</p>
+    <table>
+      <tr><th>Класс задачи</th><th>Пример</th><th>Целевой срок</th><th>Эскалация</th></tr>
+      <tr><td>Срочно</td><td>Явная пометка клиента «срочно»</td><td class="tbd">уточняется с Диной</td><td>Сразу в приоритетный блок сводки</td></tr>
+      <tr><td>Документы / счета</td><td>Сценарии 2–3, ответ исполнителя</td><td class="tbd">уточняется с Диной</td><td>Повторное напоминание исполнителю → эскалация Дине</td></tr>
+      <tr><td>Обычный вопрос</td><td>Сценарий 4, вне очереди FIFO</td><td class="tbd">уточняется с Диной</td><td>В общей сводке на контроль</td></tr>
+    </table>
+    <div class="flow" style="margin-top:22px">
+      <div class="flow-node"><span class="who">Задача создана</span><p>Присвоен класс и целевой срок ответа</p></div>
+      <div class="flow-arrow"><svg viewBox="0 0 24 24"><path d="M12 4v16m0 0l-5-5m5 5l5-5" stroke-linecap="round"/></svg></div>
+      <div class="flow-node"><span class="who">Срок истёк</span><p>Нет ответа от исполнителя/Дины в пределах целевого срока</p></div>
+      <div class="flow-arrow"><svg viewBox="0 0 24 24"><path d="M12 4v16m0 0l-5-5m5 5l5-5" stroke-linecap="round"/></svg></div>
+      <div class="flow-node"><span class="who">Повтор</span><p>Бот повторно напоминает исполнителю</p></div>
+      <div class="flow-arrow"><svg viewBox="0 0 24 24"><path d="M12 4v16m0 0l-5-5m5 5l5-5" stroke-linecap="round"/></svg></div>
+      <div class="flow-node"><span class="who">Эскалация</span><p>Задача попадает в приоритетный блок сводки Дине для личного контроля</p></div>
+    </div>
+    <span class="badge" style="margin-top:14px">Требует согласования с Диной: конкретные сроки по классам</span>
+  </section>
+
   <!-- РЕШЕНИЕ — ПОД КАПОТОМ -->
   <section class="page" style="background:var(--bg-alt)">
     <div class="part-label">Часть II · Решение</div>
